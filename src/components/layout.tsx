@@ -6,9 +6,9 @@ import { Home, BriefcaseBusiness, User } from "lucide-react";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const tab = [
-    { title: "Home", icon: Home },
-    { title: "Projects", icon: BriefcaseBusiness },
-    { title: "About Me", icon: User },
+    { title: "Home", icon: Home, href: "#hero" },
+    { title: "Projects", icon: BriefcaseBusiness, href: "#projects" },
+    { title: "About Me", icon: User, href: "#about" },
   ];
 
   return (
@@ -27,7 +27,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </motion.div>
       <motion.div
         className="fixed flex flex-row justify-center w-full gap-4 p-4 bottom-1"
-        initial={{ opacity: 0, y: 20 }}
+        initial={{ opacity: 0, y: 15 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 2.5 }}>
         <ExpandableTabs

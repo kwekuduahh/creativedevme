@@ -5,17 +5,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import { useOnClickOutside } from "usehooks-ts";
 import { cn } from "@/lib/utils";
 import { LucideIcon } from "lucide-react";
-
 interface Tab {
   title: string;
   icon: LucideIcon;
   type?: never;
+  href?: string;
 }
 
 interface Separator {
   type: "separator";
   title?: never;
   icon?: never;
+  href?: string;
 }
 
 type TabItem = Tab | Separator;
@@ -65,6 +66,10 @@ export function ExpandableTabs({
   const handleSelect = (index: number) => {
     setSelected(index);
     onChange?.(index);
+    const selectedTab = tabs[index];
+    if (selectedTab?.href) {
+      window.location.href = selectedTab.href;
+    }
   };
 
   const Separator = () => (
